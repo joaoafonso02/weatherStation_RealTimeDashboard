@@ -15,4 +15,4 @@ Real Time Visualization of BME280 Sensor Data using ESP32c3. Using ESP-IDF WIFI 
 ## Demo Video
 Click on the image below to watch the demo video on YouTube.
 
-[![Demo Video](img/viewer.png)](https://www.youtube.com/watch?v=5d3d22-uYog "Demo Video")
+[![Demo Video](img/viewer.jpeg)](https://www.youtube.com/watch?v=5d3d22-uYog "Demo Video")
