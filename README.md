@@ -11,3 +11,8 @@ Real Time Visualization of BME280 Sensor Data using ESP32c3. Using ESP-IDF WIFI 
     <br>
         `I (2104) wifi: Got IP: 10.0.1.14`
 5. Open a web browser and navigate to the IP address `10.0.1.14/` (or whatever your IP address is)
+
+## Demo Video
+Click on the image below to watch the demo video on YouTube.
+
+[![Demo Video](img/viewer.png)](https://www.youtube.com/watch?v=5d3d22-uYog "Demo Video")
