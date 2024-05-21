@@ -1,32 +1,13 @@
-# _Sample project_
+# ASE Final Project 
+Real Time Visualization of BME280 Sensor Data using ESP32c3. Using ESP-IDF WIFI and Web Server to display sensor data in real time.
 
-(See the README.md file in the upper level 'examples' directory for more information about examples.)
-
-This is the simplest buildable example. The example is used by command `idf.py create-project`
-that copies the project to user specified path and set it's name. For more information follow the [docs page](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/build-system.html#start-a-new-project)
-
-
-
-## How to use example
-We encourage the users to use the example as a template for the new projects.
-A recommended way is to follow the instructions on a [docs page](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/build-system.html#start-a-new-project).
-
-## Example folder contents
-
-The project **sample_project** contains one source file in C language [main.c](main/main.c). The file is located in folder [main](main).
-
-ESP-IDF projects are built using CMake. The project build configuration is contained in `CMakeLists.txt`
-files that provide set of directives and instructions describing the project's source files and targets
-(executable, library, or both). 
-
-Below is short explanation of remaining files in the project folder.
-
-```
-├── CMakeLists.txt
-├── main
-│   ├── CMakeLists.txt
-│   └── main.c
-└── README.md                  This is the file you are currently reading
-```
-Additionally, the sample project contains Makefile and component.mk files, used for the legacy Make based build system. 
-They are not used or needed when building with CMake and idf.py.
+## Usage
+1. Clone the repository
+2. Modify the `main/wifi.h` file to include your wifi credentials (SSID and password)
+3. Run the code on the ESP32c3 board
+4. Look for the IP address, should be printed on the serial monitor 
+    - Example: 
+    <br>`I (2104) esp_netif_handlers: sta ip: 10.0.1.14, mask: 255.255.255.0, gw: 10.0.1.1`
+    <br>
+        `I (2104) wifi: Got IP: 10.0.1.14`
+5. Open a web browser and navigate to the IP address `10.0.1.14/` (or whatever your IP address is)

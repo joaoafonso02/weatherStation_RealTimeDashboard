@@ -805,7 +805,7 @@
             "managed_reqs": [],
             "managed_priv_reqs": [],
             "file": "/Users/joaoafonso/esp/bme280/build/esp-idf/main/libmain.a",
-            "sources": [ "/Users/joaoafonso/esp/bme280/main/BME280.c", "/Users/joaoafonso/esp/bme280/main/main.c" ],
+            "sources": [ "/Users/joaoafonso/esp/bme280/main/web_server.c", "/Users/joaoafonso/esp/bme280/main/wifi.c", "/Users/joaoafonso/esp/bme280/main/BME280.c", "/Users/joaoafonso/esp/bme280/main/main.c" ],
             "include_dirs": [ "." ]
         },
         "mbedtls": {
