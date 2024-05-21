@@ -29,6 +29,8 @@ void read_sensor_task(void *pvParameters) {
     ESP_LOGI(TAG, "Sensor status: 0x%02X", status);
 
     int32_t raw_temp = 0;
+    int32_t raw_humidity = 0;
+    int32_t raw_pressure = 0;
 
     while (1) {
         if (bme280_read_raw_temp(sensorHandle, &raw_temp) == ESP_OK) {
@@ -37,6 +39,22 @@ void read_sensor_task(void *pvParameters) {
             ESP_LOGI(TAG, "Temperature: %.2f°C", temperature_celsius);
         } else {
             ESP_LOGE(TAG, "Failed to read temperature");
+        }
+
+        if (bme280_read_raw_humidity(sensorHandle, &raw_humidity) == ESP_OK) {
+            int32_t humidity = BME280_compensate_H_int32(raw_humidity);
+            float humidity_percent = humidity / 1024.0;
+            ESP_LOGI(TAG, "Humidity: %.2f%%", humidity_percent);
+        } else {
+            ESP_LOGE(TAG, "Failed to read humidity");
+        }
+
+        if (bme280_read_raw_pressure(sensorHandle, &raw_pressure) == ESP_OK) {
+            int32_t pressure = BME280_compensate_P_int32(raw_pressure);
+            float pressure_hPa = pressure / 256.0;
+            ESP_LOGI(TAG, "Pressure: %.2fhPa", pressure_hPa);
+        } else {
+            ESP_LOGE(TAG, "Failed to read pressure");
         }
        
         vTaskDelay(pdMS_TO_TICKS(1000));
