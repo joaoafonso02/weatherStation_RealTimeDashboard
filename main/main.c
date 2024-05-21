@@ -52,7 +52,7 @@ void read_sensor_task(void *pvParameters) {
         if (bme280_read_raw_pressure(sensorHandle, &raw_pressure) == ESP_OK) {
             int32_t pressure = BME280_compensate_P_int32(raw_pressure);
             float pressure_hPa = pressure / 256.0;
-            ESP_LOGI(TAG, "Pressure: %.2fhPa", pressure_hPa);
+            ESP_LOGI(TAG, "Pressure: %.2fhPa", pressure_hPa/100);
         } else {
             ESP_LOGE(TAG, "Failed to read pressure");
         }
