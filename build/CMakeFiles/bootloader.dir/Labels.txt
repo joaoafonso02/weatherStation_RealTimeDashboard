@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+/Users/joaoafonso/esp/bme280/build/CMakeFiles/bootloader
+/Users/joaoafonso/esp/bme280/build/CMakeFiles/bootloader.rule
+/Users/joaoafonso/esp/bme280/build/CMakeFiles/bootloader-complete.rule
+/Users/joaoafonso/esp/bme280/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+/Users/joaoafonso/esp/bme280/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+/Users/joaoafonso/esp/bme280/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+/Users/joaoafonso/esp/bme280/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+/Users/joaoafonso/esp/bme280/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+/Users/joaoafonso/esp/bme280/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+/Users/joaoafonso/esp/bme280/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule
