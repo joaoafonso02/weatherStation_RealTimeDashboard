@@ -4,10 +4,12 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "esp_http_server.h"
+#include "esp_https_ota.h"
+#include "esp_ota_ops.h"
+#include "driver/gpio.h"
 
 sensor_data_t g_sensor_data;
 SemaphoreHandle_t g_sensor_data_semaphore;
-
 
 esp_err_t sensor_handler(httpd_req_t *req) {
     char response[128];
@@ -50,15 +52,15 @@ esp_err_t index_handler(httpd_req_t *req) {
                 "<h1>Real Time Sensor Data Charts</h1>"
                 "<div class='chart-container'>"
                     "<h2>Temperature (&deg;C)</h2>"
-                    "<canvas id='temperatureChart' width='400' height='250'></canvas>"
+                    "<canvas id='temperatureChart' style='width:500px; height:250px;'></canvas>"
                 "</div>"
                 "<div class='chart-container'>"
                     "<h2>Humidity (%)</h2>"
-                    "<canvas id='humidityChart' width='400' height='250'></canvas>"
+                    "<canvas id='humidityChart' style='width:500px; height:250px;'></canvas>"
                 "</div>"
                 "<div class='chart-container'>"
                     "<h2>Pressure (hPa)</h2>"
-                    "<canvas id='pressureChart' width='400' height='250'></canvas>"
+                    "<canvas id='pressureChart' style='width:500px; height:250px;'></canvas>"
                 "</div>"
                 "<script src='https://cdn.jsdelivr.net/npm/chart.js'></script>"
                 "<script>"
@@ -111,6 +113,7 @@ esp_err_t index_handler(httpd_req_t *req) {
     return ESP_OK;
 }
 
+
 httpd_uri_t sensor_uri = {
     .uri       = "/sensor",
     .method    = HTTP_GET,
@@ -125,15 +128,14 @@ httpd_uri_t index_uri = {
     .user_ctx  = NULL
 };
 
-
 httpd_handle_t start_webserver(void) {
     httpd_config_t config = HTTPD_DEFAULT_CONFIG();
     httpd_handle_t server = NULL;
 
+
     if (httpd_start(&server, &config) == ESP_OK) {
         httpd_register_uri_handler(server, &index_uri);
         httpd_register_uri_handler(server, &sensor_uri);
-        //ESP_LOGI(TAG, "HTTP server started");
         return server;
     }
 
